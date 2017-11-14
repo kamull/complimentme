@@ -1,0 +1,36 @@
+body {    
+    background: lightblue,
+}
+
+.app-container {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.app-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border: 1px solid red;
+}
+
+.app-value {
+    height: 220px;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid green;
+}
+
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+    height: 40 px;
+}
+

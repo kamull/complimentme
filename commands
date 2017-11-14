@@ -1,0 +1,118 @@
+create src folder in master with index.js file inside. 
+    "npm init"
+        name the project
+        enter through the rest
+     
+    "npm i -D webpack webpack-dev-server"
+    "npm i react react-dom" (may need "npm i -S react react-dom")
+
+
+    "git init"
+    "touch .gitignore"
+name unwanted folders in there. node_modules, .c9, etc
+    "npm i -D babel-core babel-loader"
+    "npm i -D babel-preset-react"
+    "npm i -D babel-preset-stage-0"
+    "npm i -D node-sass"
+    "npm i -D sass-loader css-loader style-loader"
+    "npm i -D html-webpack-plugin"
+    "npm i -D html5-boilerplate"
+
+    "cp node_modules/html5-boilerplate/dist/index.html src/"
+    "cp node_modules/html5-boilerplate/dist/css/normalize.css src/scss/"
+
+    "touch webpack.config.js"
+open config.js
+
+top of config = 
+"var path = require('path');
+var HtmlPlugin = require('html-webpack-plugin');
+
+
+module.exports = {
+    entry: {
+        app:'./src/index.js'
+    },
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/, 
+                use: {
+                    loader: 'babel-loader'
+                },
+            },
+            { test: /\.scss$/,
+            use: [
+                {loader: 'style-loader' },
+                {loader: 'css-loader' },
+                {loader: 'sass-loader' }
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new HtmlPlugin({
+            template: path.resolve(__dirname, 'src/index.html')
+        })    
+    ],
+    devtool: 'cheap-source-map',
+    devServer: {
+        contentBase: 'dist',
+        disableHostCheck: true,
+    }
+}"
+    
+run in bash
+     "node_modules/.bin/webpack"
+
+go to package.json. after test in scripts put comma and on next line
+  " "build": "webpack -d""
+  
+in bash 
+    "rm -rf dist"
+in bash
+    "npm run build"
+in bash
+    "touch .babelrc"
+
+inside .babelrc
+    "{
+    "presets": ["stage-0", "react"]
+    }"
+
+create files in src/scss
+    index.scss
+    app.scss
+
+in index.scss
+    "@import 'normalize.css';
+    @import 'app.scss'; "
+
+in index.js at top
+    "import './scss/index.scss' "
+    
+in package.json after build in scripts put comma and on next line
+    "   "start": "webpack-dev-server"    "
+    
+in webpack.config.js under dev server
+    "        host: '0.0.0.0', "
+    
+in src/index.html
+    add div above bottom body tag. 
+
+create components folder in src. creat App.js file in components. 
+
+App.js 
+    "import React from 'react';
+
+index.js add to top
+    "import React from 'react';
+import ReactDom from 'react-dom';
+import App from './components/App.js';"
+    
+    
+
