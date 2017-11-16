@@ -114,5 +114,11 @@ index.js add to top
 import ReactDom from 'react-dom';
 import App from './components/App.js';"
     
-    
+git status
+git add --all
+git status
+git commit -m "notation"
+git remote add origin (insert git ssh link).
+git remote -v 
+git push
 
